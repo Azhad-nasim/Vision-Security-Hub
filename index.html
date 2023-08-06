@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Security Hub</title>
+    <link href="./index.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+
+
+
+    <div class="container " id="pdf">
+        <div class="logo-container">
+            <img src="./assets/VISION_SECURITY__2_-removebg-preview.png" alt="Logo" class="logo" />
+        </div>
+
+        <div class="form-container">
+            <div class="quotation-title">
+                <h1>QUOTATION</h1>
+            </div>
+
+            <div class="quotation-details">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Product Id</label>
+                    <input type="number" class="form-control" id="ids" disabled />
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Product Name</label>
+                    <input type="text" class="form-control" id="product" />
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Price</label>
+                    <input type="number" class="form-control" id="prc" />
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Quantity</label>
+                    <input type="number" class="form-control" id="qty" onchange="calculate()" />
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Amount</label>
+                    <input type="number" class="form-control" id="amnt" disabled />
+                </div>
+                <button type="button" class="btn btn-warning m-2" onclick="addData()">Add</button>
+            </div>
+            <div class="pdf">
+                <div class="quotation-footer">
+                    <div class="heading-container">
+                        <!-- <h1 class="display-4 heading-animation ">VISION SECURITY HUB</h1> -->
+                        <img class="display-4  " src="./assets/4-removebg-preview.png" alt="title" />
+                    </div>
+                    <table bgcolor="#B4E4FF" width="100%">
+                        <tr>
+                            <td>
+
+                                <div class="footer">
+                                    <span style="font-size: 30px;">QUOTATION</strong></span>
+                                    <span style="font-size: 16px;"> for CCTV Surveillance</span>
+                                </div>
+
+
+                            </td>
+                            <td>
+                                <font color="black">+91 7782812577<br>
+                                    nawabfaisal0@gmail.com<br>
+                                    visionhub29@gmail.com
+
+                                </font>
+                            </td>
+                            <td>
+                                <font color="black">Near Union Bank<br>
+                                    Kanta Toli, Ranchi<br>
+                                    Jharkhand.(834001)
+
+                                </font>
+                            </td>
+                        </tr>
+                    </table>
+                    <br><br>
+                </div>
+                <div class="table-container">
+                    <form id="quotationForm">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <label for="Quotation">Quotation To,</label>
+                                    <input type="text" class="form-control" placeholder="Quotation To" required />
+                                </td>
+                                <td>
+                                    <label for="Quotation">Quotation Number,</label>
+                                    <input type="number" class="form-control" placeholder="Quotation Number" required />
+                                </td>
+                                <td></td>
+                                <td>
+                                    <label for="Quotation">Quotation Total,</label>
+                                    <input type="text" id="quotationTotalInput" class="form-control"
+                                        placeholder="Quotation Total" required disabled />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control" placeholder="Client Number" required /></td>
+                                <td><input type="date" class="form-control" required /></td>
+
+                                <td></td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control" placeholder="Client Address" required />
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+
+                        </table>
+                    </form>
+                </div>
+
+                <div id="error-message"></div>
+
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col" class="remove-id-column remove-on-pdf">Remove Id.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="newtr">
+
+                        </tbody>
+
+                    </table>
+                    <div class="rotate-logo">
+                        <!-- This div will be used to center the background image -->
+                        <div class="logo-container1">
+                            <img src="./assets/VISION_SECURITY__2_-removebg-preview.png" alt="Logo" class="logo" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="quotation-details">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>Subtotal:</th>
+                                <th id="subtotal-amount">0.00</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>Total Amount(Rs):</th>
+                                <th id="total">0.00</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <h3 class="text-center custom-text animated infinite bounce">OUR BUSINESS IS PROTECT YOU</h3>
+                </div>
+
+            </div>
+            <button id="downloadPdfButton" class="btn btn-primary m-2">Download PDF</button>
+            <a href="https://azhad-nasim.github.io/VSH-Invoice/"><button class="btn btn-primary m-2">Invoice
+                    Generate</button></a>
+        </div>
+    </div>
+
+    <div class="greeting-popup">
+        <button class="btn btn-primary btn-lg" onclick="hideGreetingPopup()">Hello Nawab!</button>
+    </div>
+    <div class="blur-background"></div>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="./index.js"></script>
+
+
+
+
+</body>
+
+</html>
